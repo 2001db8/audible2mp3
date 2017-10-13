@@ -6,15 +6,11 @@
 # Jens Roesen <jens@roesen.org>, 2017
 # https://github.com/2001db8/audible2mp3
 #
-# Based on a fork of AAX2MP3 (https://github.com/KrumpetPirate/AAXtoMP3)
-# with additional funtionality.
-#
-# For this to work you need your personal four activation bytes
+# To decode your files  you need your personal four activation bytes
 # from audible. You can *NOT* use this script to decode Audible files you
 # do not rightfully own!
 #
-# For this to script work you need your personal four activation bytes
-# from audible. These are stored on any device which is
+# These activation bytes are stored on any device which is
 # activated and can play Audible AAX files. For instance on
 # Windows Systems in HKLM\SOFTWARE\WOW6432Node\Audible\SWGIDMAP
 # in your registry.
@@ -25,8 +21,6 @@
 set -o errexit -o noclobber -o nounset -o pipefail
 trap cleanup EXIT QUIT SIGINT
 
-#working_directory=$($MKTEMP -d -t audible2mp3.XXXX 2>/dev/null)
-#metadata_file="${working_directory}/metadata.txt"
 working_directory=""
 codec=libmp3lame
 extension=mp3
